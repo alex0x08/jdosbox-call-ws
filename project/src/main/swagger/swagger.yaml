@@ -1,0 +1,50 @@
+swagger: "2.0"
+info:
+  title: "Boring API"
+  version: "1.0.0"
+  description: "API for environmental exposure models for NIH Data Translator program"
+  termsOfService: "None Available"
+basePath: /api
+schemes:
+  - https
+  - http
+
+paths:
+  /activity:
+    get:
+      summary: "Get current activity"
+      description: "Returns current activity"
+      produces:
+        - application/json
+      responses:
+        200:
+          description: "Exposure current activity"
+          schema:
+            $ref: '#/definitions/activity'
+        404:
+          description: "No exposure types found"
+
+definitions:
+  activity:
+    type: object
+    properties:
+      activity:
+        type: string
+        example: "some activity"
+      type:
+        type: string
+        example: "relaxation"
+      participants:
+        type: number
+        example: 1
+      price:
+        type: string
+        format: float
+        example: 0.25
+      link:
+        type: string
+      key:
+        type: string
+      accessibility:
+        type: string
+        format: float
